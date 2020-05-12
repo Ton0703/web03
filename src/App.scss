@@ -1,0 +1,441 @@
+$fontcolor: rgb(35, 44, 140);
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.App{
+    width: 100%;
+    min-width: 100vh;
+    overflow-x: hidden;
+
+    .header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 60px;
+        background-color: #fff;
+        z-index: 2;
+
+
+        .hdleft{
+            width: 100px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+        }
+        .hdright{
+            width: 50%;
+            min-width: 450px;
+            display: flex;
+            align-items: center;
+
+           
+
+            .nav{
+                width: 100%;
+                ul{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    list-style: none;
+
+                    @media screen and (max-width: 750px){
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 80%;
+                        height: 100vh;
+                        position: fixed;
+                        right: 0;
+                        top: 0;
+                        background-color: #fff;
+                        transition: all .3s ease;
+                        transform: translateX(30px);
+                        opacity: 0;
+
+                        li{
+                            margin-bottom: 20px;
+                        }
+                    }
+                    
+
+                    li{
+                        cursor: pointer;
+                        color: $fontcolor;
+                        font-size: 1rem;
+                        font-weight: 400;
+                        line-height: 1.5;
+                        font-family: 'Ma Shan Zheng', cursive;
+                        position: relative;
+
+                        &::after{
+                            content: '';
+                            width: 100%;
+                            height: 2px;
+                            background-color: $fontcolor;
+                            position: absolute;
+                            left: 0;
+                            bottom: -5px;
+                            transform: scaleX(0);
+                            transform-origin: left;
+                            transition: all .3s ease;
+                        }
+                        &:hover{
+                            &::after{
+                               transform: scaleX(1);
+                               transform-origin: right;
+                            }
+                        }
+                    }
+                }
+
+                .visible{
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        }
+        .menu-btn{
+            position: absolute;
+            right: 50px;
+            top: 30px;
+            width: 30px;
+            height: 30px;
+            display: none;
+            
+            @media screen and (max-width: 750px) {
+                display: block;
+            }
+
+            .line{
+                width: 100%;
+                height: 2px;
+                background-color: $fontcolor;
+                cursor: pointer;
+                transition: all .3s ease;
+
+               
+
+                &:nth-child(1){
+                    position: absolute;
+                    left: 0;
+                    top: 10px;
+                }
+                &:nth-child(2){
+                    position: absolute;
+                    left: 0;
+                    bottom: 10px;
+                }
+            }
+
+        }
+        .active{
+            .line{
+                &:nth-child(1){
+                    transform: rotate(45deg) translateY(5px);
+                }
+                &:nth-child(2){
+                    transform: rotate(-45deg) translateY(-5px);
+                }
+            }
+        }
+    }
+
+    .home{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+
+        .home-page{
+            width: 100%;
+            height: 100vh;
+            padding: 100px 50px 0;
+
+            .slick-container{
+                position: relative;
+                 width: 100%;
+                 height: 90%;
+
+                 @media screen and (max-width: 750px){
+                     .previous{
+                         display: none;
+                     }
+                     .next{
+                         display: none;
+                     }
+                 }
+                 .previous{
+                     width: 32px;
+                     height: 32px;
+                     cursor: pointer;
+                     position: absolute;
+                     left: -35px;
+                     top: 45%;
+                 }
+                 .next{
+                     position: absolute;
+                     right: -35px;
+                     top: 45%;
+                     width: 32px;
+                     height: 32px;
+                     transform: rotate(180deg);
+                     cursor: pointer;
+                 }
+
+                 .slick-bg{
+                     width: 100%;
+                     height: 100%;
+                     position: absolute;
+                     left: 0;
+                     top: 0;
+                     background-size: cover;
+                     background-position: center;
+                     will-change: opacity;
+                 }
+            }
+        }
+
+        .section1{
+            width: 100%;
+            height: auto;
+            padding-top: 100px;
+            padding-right: 60px;
+            position: relative;
+            overflow: hidden;
+
+            .sec1-container{
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 2;
+                padding-bottom: 100px;
+
+                @media screen and (max-width: 750px){
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                .sec1-left{
+                    width: 33%;
+                    padding-right: 60px;
+                    height: 300px;
+                    background-color: #232c8c;
+                    color: #fff;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    font-size: 2rem;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    @media screen and (max-width: 750px){
+                        width: 50%;
+                        height: 200px;
+                        margin-bottom: 20px;
+                    }
+                }
+                .sec1-right{
+                    width: 55%;
+                    font-size: 1.3rem;
+                    font-weight: 200;
+                    color: $fontcolor;
+                    line-height: 1.5;
+                    background-color: #fff;
+                    @media screen and (max-width: 750px){
+                        width: 100%;
+                        padding-left: 30px;
+                    }
+                }
+            }
+
+            .line{
+                position: absolute;
+                left: 0;
+                top: 100%;
+                transform: rotate(-30deg);
+                transform-origin: left;
+                width: 145%;
+                height: 2px;
+                background-color: #232c8c;
+                z-index: -1;
+            }
+        }
+        .section3{
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 200px;
+
+            @media screen and (max-width: 750px){
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                justify-content: flex-start;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            .sec3-left{
+                width: 20%;
+                height: 100%;
+                border-right: 1px solid $fontcolor;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: $fontcolor;
+                padding-top: 40px;
+                
+                @media screen and (max-width: 750px){
+                    border-right: none;
+                    border-bottom: 1px solid $fontcolor;
+                    width: 100%;
+                    height: auto;
+                    align-items: flex-start;
+                    padding: 0 20px;
+                    padding-top: 0;
+                }
+
+                span{
+                    margin-bottom: 10px;
+                }
+                .cn{
+                    font-size: 2rem;
+                    font-family: 'Ma Shan Zheng', cursive;
+                }
+                .en{
+                    font-size: 1rem;
+                    font-family: 'Poppins', sans-serif;
+                }
+            }
+            .sec3-right{
+                width: 75%;
+                @media screen and (max-width: 750px){
+                    width: 100%;
+                   
+                }
+                .news{
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                    background-color: #fff;
+                    padding: 40px;
+                    font-size: .8rem;
+                    color: $fontcolor;
+                    cursor: pointer;
+                    transition: all .3s ease;
+
+                    &:hover{
+                        background-color: $fontcolor;
+                        color: #fff;
+
+                        .arrowhead{
+                            svg{
+                                fill: #fff
+                            }
+                        }
+                    }
+                    .arrowhead{
+                        position: absolute;
+                        right: 40px;
+                        top: 45%;
+                        transform: rotate(180deg) translateY(50%);
+
+                        svg{
+                            fill: $fontcolor;
+                        }
+                    }
+
+                    .time{
+                        font-weight: 400;
+                        margin-bottom: 10px;
+                    }
+                    .content{
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+
+        .section4{
+            width: 100%;
+            padding:0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 100px;
+            @media screen and (max-width: 750px){
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            
+            & > div{
+                width: 48%;
+                @media screen and (max-width: 750px){
+                    width: 100%;
+                }
+            }
+        }
+        .footer{
+            width: 100%;
+            padding: 100px;
+            background-color: #232c8c;
+            display: flex;
+            flex-direction: column;
+            align-items: center;;
+
+            .contact{
+                cursor: pointer;
+                color: #fff;
+                padding: 30px;
+                width: 400px;
+                border: 3px solid #fff;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: all .3s ease;
+
+                &:hover{
+                    background-color: #fff;
+                    color: $fontcolor;
+                }
+                .cn{
+                    font-size: 1.5rem;
+                    font-family: 'Ma Shan Zheng', cursive;
+                    margin-bottom: 10px;
+                }
+                .en{
+                    font-size: .9rem;
+                    font-family: 'Poppins', sans-serif;
+                    letter-spacing: .2rem;
+                }
+            }
+            .info{
+                color: #fff;
+                margin-top: 20px;
+                font-size: 1rem;
+                text-align: center;
+
+                .compony{
+                    font-family: 'Poppins', sans-serif;
+                    margin-bottom: 10px;
+                    text-align: center;
+                }
+                .adress{
+                    font-family: 'Ma Shan Zheng', cursive;
+                    margin-bottom: 10px;
+                }
+            }
+
+            
+        }
+    }
+}

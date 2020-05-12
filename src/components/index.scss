@@ -1,0 +1,52 @@
+.box{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover{      
+        transform: translateY(-20px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+    }
+    
+    .box-img{
+        width: 100%;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .box-card{
+        width: 100%;
+        padding: 20px;
+        border: 1px solid #e9e9e9;
+        border-top: none;
+        transform: translateY(-3px);
+        position: relative;
+
+        .title{
+           font-size: 1.3rem;
+           font-family: 'Ma Shan Zheng', cursive;
+           color: rgb(35, 44, 140);
+           margin-bottom: 10px;
+        }
+        .content{
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .arrowhead{
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg);      
+            
+            svg{
+                fill: rgb(35, 44, 140);
+            }
+        }
+    }
+
+}
