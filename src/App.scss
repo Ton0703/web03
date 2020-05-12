@@ -9,6 +9,8 @@ $fontcolor: rgb(35, 44, 140);
     width: 100%;
     min-width: 100vh;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 
     .header{
         position: fixed;
@@ -41,6 +43,7 @@ $fontcolor: rgb(35, 44, 140);
             .nav{
                 width: 100%;
                 ul{
+                    position: relative;
                     width: 100%;
                     display: flex;
                     justify-content: space-around;
@@ -51,7 +54,7 @@ $fontcolor: rgb(35, 44, 140);
                         justify-content: center;
                         align-items: center;
                         width: 80%;
-                        height: 100vh;
+                        height: 100%;
                         position: fixed;
                         right: 0;
                         top: 0;
@@ -99,6 +102,7 @@ $fontcolor: rgb(35, 44, 140);
                 .visible{
                     transform: translateX(0);
                     opacity: 1;
+                    z-index: 3;
                 }
             }
         }
@@ -109,6 +113,8 @@ $fontcolor: rgb(35, 44, 140);
             width: 30px;
             height: 30px;
             display: none;
+            z-index: 4;
+            cursor: pointer;
             
             @media screen and (max-width: 750px) {
                 display: block;
@@ -118,7 +124,6 @@ $fontcolor: rgb(35, 44, 140);
                 width: 100%;
                 height: 2px;
                 background-color: $fontcolor;
-                cursor: pointer;
                 transition: all .3s ease;
 
                
@@ -159,11 +164,15 @@ $fontcolor: rgb(35, 44, 140);
             height: 100vh;
             padding: 100px 50px 0;
 
+            @media screen and (max-width: 750px) {
+                padding: 0;
+            }
+
             .slick-container{
                 position: relative;
                  width: 100%;
-                 height: 90%;
-
+                 min-height: 100%;
+                
                  @media screen and (max-width: 750px){
                      .previous{
                          display: none;
@@ -215,8 +224,8 @@ $fontcolor: rgb(35, 44, 140);
                 position: relative;
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
-                z-index: 2;
+                align-items: flex-start;
+                z-index: 1;
                 padding-bottom: 100px;
 
                 @media screen and (max-width: 750px){
@@ -227,6 +236,7 @@ $fontcolor: rgb(35, 44, 140);
                     width: 33%;
                     padding-right: 60px;
                     height: 300px;
+                    min-width: 400px;
                     background-color: #232c8c;
                     color: #fff;
                     display: flex;
